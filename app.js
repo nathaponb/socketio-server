@@ -14,8 +14,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 /**
- ** Mapping Rooms
+ ** Mapping Route
  */
+app.use("/register", require("./routes/auth/register"));
 require("./routes/index")(app.io);
 
 /**
@@ -39,7 +40,7 @@ app.use(function (err, req, res, next) {
    ** render the error page
    */
   res.status(err.status || 500);
-  res.render("error");
+  // res.render("error");
 });
 
 module.exports = app;
