@@ -1,13 +1,13 @@
 module.exports = (socket) => {
   // console.log(data);
   socket.on("global", (data) => {
-    console.log("GLOBAL", data);
-    // send to everyone include sender in global room
+    // send sender specifically
     socket.emit("global", {
       type: "message",
       text: data.message,
       isOwner: true,
-      owner: data.owner,
+      senderID: data.senderID,
+      senderData: data.sender,
       timeStamp: new Date(),
     });
 
@@ -16,9 +16,9 @@ module.exports = (socket) => {
       type: "message",
       text: data.message,
       isOwner: false,
-      owner: data.owner,
+      senderID: data.senderID,
+      senderData: data.sender,
       timeStamp: new Date(),
-      avatarID: data.avatarID,
     });
   });
 };
