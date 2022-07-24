@@ -10,7 +10,7 @@ module.exports = async (req, res, next) => {
     return next("Bad request, Nice try Robot!");
   }
   try {
-    const response = await axios.post(
+    const response = await axios.get(
       `https://www.google.com/recaptcha/api/siteverify?secret=${secret}&response=${token}`
     );
     console.log("WHAT WRONG :(");
