@@ -31,13 +31,22 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "public")));
+// app.use(express.static(path.join(__dirname, "public")));
 
 /**
  ** Mapping Route
  */
 app.use("/register", require("./routes/auth/register"));
 require("./routes/index")(app.io);
+
+// Server production build static dir
+if (process.env.NODE_ENV !== "production") {
+  app.use(express.static(path.join(__dirname, "client/build")));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
+}
 
 /**
  ** catch 404 and forward to error handler

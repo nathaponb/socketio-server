@@ -14,7 +14,6 @@ module.exports = async (req, res, next) => {
     req.verified = response.data.success;
     next();
   } catch (err) {
-    console.log(err);
     next(err);
   }
 };

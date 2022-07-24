@@ -1,5 +1,4 @@
 module.exports = (socket) => {
-  // console.log(data);
   socket.on("global", (data) => {
     // send sender specifically
     socket.emit("global", {
