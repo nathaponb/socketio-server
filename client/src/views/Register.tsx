@@ -152,7 +152,7 @@ function Register(): JSX.Element {
           </small>
 
           <ReCAPTCHA
-            sitekey={`6LcR-54gAAAAAAzeWcvjCjPDqwwFfeSGX0L8mIPZ`}
+            sitekey="6Lc6tBchAAAAAGabNTqzJZAKq29ZnlvyB51FahhA"
             size="invisible"
             ref={reRef}
           />
