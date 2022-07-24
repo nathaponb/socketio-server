@@ -45,10 +45,12 @@ const userSlice = createSlice({
       state.loading = true;
     });
     builder.addCase(AttemptRegisterUser.rejected, (state, action) => {
+      console.log("DEBUG:reject", action.payload);
       state.error = "Unable to register user";
       state.loading = false;
     });
     builder.addCase(AttemptRegisterUser.fulfilled, (state, action) => {
+      console.log("DEBUG:success", action.payload);
       state.data = action.payload;
       state.loading = false;
     });
