@@ -6,7 +6,6 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../app/store";
 import { BsImage } from "react-icons/bs";
 import { AiFillAudio } from "react-icons/ai";
-import ReactTooltip from "react-tooltip";
 
 interface Props {
   socket: Socket;
@@ -35,14 +34,12 @@ function Input({ socket }: Props): JSX.Element {
     <S.Input>
       <form onSubmit={handleSubmit}>
         <div>
-          <button data-tip="This feature is not yet implemented">
-            <ReactTooltip place="top" type="dark" effect="float" />
+          <button>
             <figure>
               <BsImage color="#757575" />
             </figure>
           </button>
-          <button data-tip="This feature is not yet implemented">
-            <ReactTooltip place="top" type="dark" effect="float" />
+          <button>
             <figure>
               <AiFillAudio color="#757575" />
             </figure>

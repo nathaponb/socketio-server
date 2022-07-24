@@ -17,7 +17,6 @@ interface IUsers {
 }
 
 function Home() {
-  console.log("Re-rendering HOME");
   const dispatch = useDispatch();
   const [socket, setSocket] = useState<Socket | null>(null);
   const [messages, setMessages] = useState<Array<IMessage>>([]);
@@ -45,7 +44,6 @@ function Home() {
     setSocket(newSocket);
 
     newSocket.on("connection", (data: IMessage) => {
-      console.log("on connection", data.senderData);
       dispatch(inserted(data)); // push 'notify' message to active users
       dispatch(joined(data.senderData!)); // add new user to the people list
     });
