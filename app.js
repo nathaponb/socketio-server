@@ -40,7 +40,7 @@ app.use("/register", require("./routes/auth/register"));
 require("./routes/index")(app.io);
 
 // Server production build static dir
-if (process.env.NODE_ENV !== "production") {
+if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "client/build")));
 
   app.get("*", (req, res) => {
